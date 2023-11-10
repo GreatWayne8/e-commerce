@@ -37,7 +37,7 @@ def register(request):
                 'token'  :default_token_generator.make_token(user),
             })
             to_email    = email
-            send_email  = EmailMessage(mail_subject, message, to[to_email])
+            send_email  = EmailMessage(mail_subject, message, [to_email])
             send_email.send()
             messages.success(request, 'Registration successful')
             return redirect('register')
